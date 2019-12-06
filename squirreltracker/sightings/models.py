@@ -22,7 +22,7 @@ class Squirrel(models.Model):
     chasing = models.BooleanField()
     climbing = models.BooleanField()
     eating = models.BooleanField()
-    foraging = models.BoolenField()
+    foraging = models.BooleanField()
     other_activities = models.CharField(max_length=200, null=True)
     kuks = models.BooleanField()
     quaas = models.BooleanField()
