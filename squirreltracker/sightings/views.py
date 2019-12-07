@@ -31,3 +31,22 @@ def update(request):
             form = SightingsForm(instance = squirrel)
             context = {'form':form,'squirrel':squirrel,}
             return render(request,'sightings/updateSightings.html',context)
+
+def stats(request):
+    age_stats = Squirrel.objects.filter(age = 'Juvenile').count()
+    primary_fur_col_stats = Squirrel.objects.filter(primary_fur_color = 'Gray').count()
+    location_stats = Squirrel.objects.filter(location = 'Ground Plane').count()
+    running_stats = Squirrel.objects.filter(running = 'True').count()
+    chasing_stats = Squirrel.objects.filter(chasing = 'True').count()
+    context = {
+            'age':age_stats,
+            'fur':primary_fur_col_stats,
+            'location':location_stats,
+            'running':running_stats,
+            'chasing':chasing_stats,
+            }
+    return render(request,'sightings/statsSighings.html',context)
+
+
+
+
