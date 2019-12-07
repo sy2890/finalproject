@@ -9,21 +9,14 @@ def sightings(request):
         lst = Squirrel.objects.all()
         return render(request,'sightings/sightingsList.html',{'lst':lst})
 
-class  addSightings(CreateView):
-    model = Squirrel
-    fields = '__all__'
-    success_url = reverse_lazy('sightings:sightings')
+def add(request):
+    if request.method == 'POST':
+        form = SightingsForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("/sightings/add")
+    else:
+        form = SightingsForm()
+    return render(request,'sightings/addSightings.html',{'form':form})
 
-def edit_view(request, squirrel_id):
-    instance = get_object_or_404(Squirrel, unique_squirrel_id=squirrel_id)
-    form = SightingsForm(request.Post or None, instance=inistance)
-    if form.is_valid():
-        form.save()
-        return redirect(f'/sightings/{squirrel_id}')
-
-    context ={
-            'form':form,
-            'sqid':squirrel_id,
-            }
-    return render(request, 'sightings/sightings_edit.html', context)
 

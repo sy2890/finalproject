@@ -1,8 +1,8 @@
-from django import forms
+from django.forms import ModelForm
 
 from .models import Squirrel
 
-class SightingsForm(forms.ModelForm): 
+class SightingsForm(ModelForm): 
     class Meta:
         model = Squirrel
-        fields = [f.name for f in Squirrel._meta.get_fields()]
+        fields = '__all__' 
