@@ -1,0 +1,17 @@
+<!DOCTYPE>
+<html>
+<body>
+	  <form>
+	  	<div>
+		<a href="/sightings/add"><button type="button">add</button></a>
+		<a href="/sightings/stats"><button type="button">stats</button></a>
+		<a href="/map"><button type="button">map</button></a>
+		</div>
+	  </form>
+	 <ul>
+																			  		  	{% for sighting in sightings %}
+																					  	<li><a href="/sightings/{{sighting.id}}">{{ Squirrel.unique_squirrel_id }}</a></li>
+																						{% endfor %}
+																					   </ul>
+																				  </body>																			    </html>
+
