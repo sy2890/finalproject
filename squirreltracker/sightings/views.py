@@ -19,4 +19,15 @@ def add(request):
         form = SightingsForm()
     return render(request,'sightings/addSightings.html',{'form':form})
 
-
+def update(request):
+    if request.method == 'POST':
+        squirrel = Squirrel.objects.get(squirrel_id = squirrel_id)
+        form = SightingsForm(request.POST,instance = squirrel)
+        if form.is_valid():
+            form.save()
+            return redirect(f'/sightings/{squirrel_id}/')
+        elif request.method == 'GET':
+            squirrel = Squirrel.objects.get(squirrel_id = squirrel_id)
+            form = SightingsForm(instance = squirrel)
+            context = {'form':form,'squirrel':squirrel,}
+            return render(request,'sightings/updateSightings.html',context)
