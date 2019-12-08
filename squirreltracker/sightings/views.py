@@ -1,11 +1,12 @@
 from django.shortcuts import render,redirect
+from django.shortcuts import get_object_or_404
 from .forms import SightingsForm
 from .models import Squirrel
 
 def sightings(request):
     if request.method == "GET":
         sightings = Squirrel.objects.all()
-        return render(request,'sightings/sightings.html',{'sightings':sightings,})
+        return render(request,'sightings/sightings.html',{'sightings':sightings})
 
 def add(request):
     if request.method == 'POST':
@@ -17,18 +18,17 @@ def add(request):
         form = SightingsForm()
     return render(request,'sightings/addSightings.html',{'form':form,})
 
-def update(request):
+def update(request, squirrel_id):
+    squirrel = get_object_or_404(Squirrel, unique_squirrel_id = squirrel_id)
     if request.method == 'POST':
-        squirrel = Squirrel.objects.get(squirrel_id = squirrel_id)
         form = SightingsForm(request.POST,instance = squirrel)
         if form.is_valid():
             form.save()
-            return redirect(f'/sightings/{squirrel_id}/')
-        elif request.method == 'GET':
-            squirrel = Squirrel.objects.get(squirrel_id = squirrel_id)
-            form = SightingsForm(instance = squirrel)
-            context = {'form':form,'squirrel':squirrel,}
-            return render(request,'sightings/updateSightings.html',context)
+            return redirect(f'/sightings/{squirrel_id}')
+    else:
+        form = SightingsForm(instance = squirrel)
+        context = {'form':form}
+        return render(request,'sightings/updateSightings.html',context)
 
 def stats(request):
     age_stats = Squirrel.objects.filter(age = 'Juvenile').count()
@@ -43,7 +43,7 @@ def stats(request):
             'running':running_stats,
             'chasing':chasing_stats,
             }
-    return render(request,'sightings/statsSighings.html',context)
+    return render(request,'sightings/statsSightings.html',context)
 
 
 

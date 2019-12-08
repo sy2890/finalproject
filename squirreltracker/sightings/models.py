@@ -8,7 +8,7 @@ class Squirrel(models.Model):
     date = models.DateField()
     age = models.CharField(max_length=10,null=True)
     primary_fur_color = models.CharField(max_length=15, null=True)
-    locatin = models.CharField(max_length=20, null=True)
+    location = models.CharField(max_length=20, null=True)
     specific_location = models.CharField(max_length=200, null=True)
     running = models.BooleanField()
     chasing = models.BooleanField()

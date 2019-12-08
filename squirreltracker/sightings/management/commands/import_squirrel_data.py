@@ -82,9 +82,9 @@ class Command(BaseCommand):
                     if created:
                         sightings.save()
                         display_format = '\nSquirrels, {}, saved successfully'
-                        print(display_format(sighting))
+                        print(display_format(sightings))
                 except Exception as ex: 
-                    print(str(ex))
+                    print(ex)
 
     def handle(self,*args,**options):
         file_path = options['file_path']

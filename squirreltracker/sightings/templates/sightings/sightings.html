@@ -10,7 +10,7 @@
 	  </form>
 	 <ul>
 																			  		  	{% for sighting in sightings %}
-																					  	<li><a href="/sightings/{{sighting.id}}">{{ Squirrel.unique_squirrel_id }}</a></li>
+																					  	<li><a href="/sightings/{{sighting.unique_squirrel_id}}">{{ sighting.unique_squirrel_id }}</a></li>
 																						{% endfor %}
 																					   </ul>
 																				  </body>																			    </html>
