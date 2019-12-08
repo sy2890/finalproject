@@ -13,7 +13,7 @@ def add(request):
         form = SightingsForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("/sightings/add")
+            return redirect("/sightings")
     else:
         form = SightingsForm()
     return render(request,'sightings/addSightings.html',{'form':form,})
