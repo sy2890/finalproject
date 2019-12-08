@@ -8,10 +8,11 @@
 		<a href="/map"><button type="button">map</button></a>
 		</div>
 	  </form>
-	 <ul>
-																			  		  	{% for sighting in sightings %}
-																					  	<li><a href="/sightings/{{sighting.unique_squirrel_id}}">{{ sighting.unique_squirrel_id }}</a></li>
-																						{% endfor %}
-																					   </ul>
-																				  </body>																			    </html>
+	 <ul>											  	 {% for sighting in sightings %}
+            <li>												<a href="/sightings/{{sighting.unique_squirrel_id}}">
+															{{ sighting.unique_squirrel_id }}
+														</a>											</li>
+	   {% endfor %}
+												        </ul>
+											      </body>											    </html>
 
