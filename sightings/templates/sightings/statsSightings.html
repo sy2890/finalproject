@@ -7,12 +7,20 @@
 	</head>
 
 	<body>
-		<h1>The number of juvenile squirrels: {{age}}</h1>
-		<h1>The number of squirrels with gray fur: {{fur}}</h1>
-		<h1>The number of squirrels on the groud plane: {{location}}</h1>
-		<h1>The number of squirrels which were running:{{running}}</h1>
-		<h1>The number of squirrels which were chasing:{{chasing}}</h1>
-
+	<table class='table table-striped'>
+		<thead>
+			<th>STATS about Squirrels</th>
+		</thead>
+		<tbody>
+			<tr>
+			<td>
+				<h2>The number of juvenile squirrels: {{age}}</h2>
+				<h2>The number of squirrels with gray fur: {{fur}}</h2>
+				<h2>The number of squirrels on the groud plane: {{location}}</h2>
+				<h2>The number of squirrels which were running:{{running}}</h2>
+				<h2>The number of squirrels which were chasing:{{chasing}}</h2>
+		</tbody>
+	</table>
 		<a href="/sightings">BACK TO ALL SQUIRRELS LIST</a>
 	</body>
 </html>
