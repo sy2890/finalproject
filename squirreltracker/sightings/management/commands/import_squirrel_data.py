@@ -66,7 +66,7 @@ class Command(BaseCommand):
                             specific_location = specific_location,
                             running = running,
                             chasing = chasing,
-                            climbing = climbing
+                            climbing = climbing,
                             eating = eating,
                             foraging = foraging,
                             other_activities = other_activities,
@@ -74,17 +74,17 @@ class Command(BaseCommand):
                             quaas = quaas,
                             moans = moans,
                             tail_flags = tail_flags,
-                            tail_twiches = tail_twiches,
+                            tail_twitches = tail_twitches,
                             approaches = approaches,
                             indifferent = indifferent,
                             runs_from = runs_from
                             )
-                            if created:
-                                sightings.save()
-                                display_format = '\nSquirrels, {}, saved successfully'
-                                print(display_format(sighting))
-                except Exception
-                    print('Exception')
+                    if created:
+                        sightings.save()
+                        display_format = '\nSquirrels, {}, saved successfully'
+                        print(display_format(sighting))
+                except Exception as ex: 
+                    print(str(ex))
 
     def handle(self,*args,**options):
         file_path = options['file_path']
