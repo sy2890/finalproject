@@ -1,6 +1,12 @@
 <!DOCTYPE>
 <html>
 <body>
+<head>
+		<meta charset="utf-8">
+			<title>sightings</title>
+				<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	
+</head>
 	  <form>
 	  	<div>
 		<a href="/sightings/add"><button type="button">add</button></a>
@@ -8,11 +14,18 @@
 		<a href="/map"><button type="button">map</button></a>
 		</div>
 	  </form>
-	 <ul>											  	 {% for sighting in sightings %}
-            <li>												<a href="/sightings/{{sighting.unique_squirrel_id}}">
+	 <ul>
+ <table class='table table-striped'>
+	 <thead><th>unique_squirrel_id </th></thead>
+	 <tbody>
+           {% for sighting in sightings %}
+	   <tr>
+	   <td>											                <a href="/sightings/{{sighting.unique_squirrel_id}}">
+			   
 															{{ sighting.unique_squirrel_id }}
-														</a>											</li>
+														</a>											</td>
+	   </tr>
 	   {% endfor %}
-												        </ul>
-											      </body>											    </html>
+	  </tbody>										       </ul>
+												</table>											      </body>											    </html>
 
