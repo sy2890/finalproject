@@ -6,8 +6,7 @@
 
 ## Description
 The project is designed to track squirrels in Central Park at NYC.    
-It is a web application project based on Django development.      
-Users can see a list with each squirrel's ID, add and edit squirrels' information, and they can also get some general statistics about squirrels. Moreover, users can get the visualization of the map with sightings of squirrels around Central Park at NYC.       
+It is a web application project based on Django development. Users can see a list with each squirrel's ID, add and edit squirrels' information, and they can also get some general statistics about squirrels. Moreover, users can get the visualization of the map with sightings of squirrels around Central Park at NYC.       
 
 ## Dataset
 Dataset for this project can be downloaded [here](https://data.cityofnewyork.us/api/views/vfnx-vebw/rows.csv).
